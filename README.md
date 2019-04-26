@@ -16,7 +16,3 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 > npm install
 > npm start
-=======
-# my-website
-Create my own website
->>>>>>> 80ad9755d7247551c1ebe2d595d3cb3b179bfe84
