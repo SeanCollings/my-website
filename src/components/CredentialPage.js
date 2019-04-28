@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Header from './components/Header';
-import Paper from './components/paper';
 import SignIn from './components/SignIn';
 
 import Button from '@material-ui/core/Button';
@@ -12,8 +11,7 @@ class CredentialPage extends Component {
   render() {
     return (
       <div>
-        <Header headerName="Home" colour="#120533" />
-        <Paper title="Login" content="Please do the login" />
+        <Header headerName="Home" colour="#3f51b5" />
         <SignIn />
         <Grid container
           spacing={0}
