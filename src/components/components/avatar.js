@@ -6,7 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 
-import profilePic from '../images/fry.png';
+import profilePic from '../../images/fry.png';
 
 const styles = {
   avatar: {

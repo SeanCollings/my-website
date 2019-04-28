@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 // import Button from '@material-ui/core/Button';
 
-import Header from './Header';
-import Paper from './paper';
+import Header from './components/Header';
+import Paper from './components/paper';
 
 class ProfilePage extends Component {
   render() {

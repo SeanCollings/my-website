@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 // import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
-import Header from './Header';
+import Header from './components/Header';
 // import Loader from './loaderCircular';
-import Loader from './loaderLinear';
-import Paper from './paper';
+import Loader from './components/loaderLinear';
+import Paper from './components/paper';
+import MediaCard from './components/MediaCard';
 
 const styles = theme => ({
   margin: {
@@ -24,23 +25,16 @@ class HomePage extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    // const { classes } = this.props;
     return (
       <div>
         <Header headerName="Welcome" />
         <Loader loaded={this.state.loaded} />
-        {/* <Button
-          variant="contained"
-          color="primary"
-          href="/new-page"
-          className={classes.margin}
-        >
-          New Page
-        </Button> */}
         <Paper
-          title="This is the Home Page"
-          content="It is the page of the home"
+          title="My name is Sean Collings"
+          content="Please, have a look around"
         />
+        <MediaCard />
       </div>
     );
   }
