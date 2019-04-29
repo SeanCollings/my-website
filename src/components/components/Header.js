@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import Avatar from './avatar';
-import LongMenu from './LongMenu';
+// import LongMenu from './LongMenu';
+import TempDrawer from './TempDrawer';
 
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,6 +12,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+// import Drawer from '@material-ui/core/Drawer';
 // import IconButton from '@material-ui/core/IconButton';
 // import MenuIcon from '@material-ui/icons/Menu';
 
@@ -27,24 +32,19 @@ const styles = {
   background: '#2E3B55'
 };
 
-const menuList = [
-  'Projects',
-  'Profile',
-  'Contact',
-  'Login'
-];
+const menuList = ['Projects', 'Profile', 'Contact', 'Login'];
 
 class Header extends React.Component {
-  state = { mobileWidth: false };
+  state = { mobileWidth: false, openDrawer: false };
   updateDimensions = this.updateDimensions.bind(this);
 
   componentDidMount() {
     this.updateDimensions();
-    window.addEventListener("resize", this.updateDimensions);
+    window.addEventListener('resize', this.updateDimensions);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions);
+    window.removeEventListener('resize', this.updateDimensions);
   }
 
   updateDimensions() {
@@ -62,14 +62,31 @@ class Header extends React.Component {
   renderMenuItems() {
     return menuList.map(item => {
       return (
-        <Button key={item} color="inherit" href={`/${item.toLowerCase()}`}>
+        <Button
+          key={item}
+          color="inherit"
+          onClick={e => {
+            this.handleClick(item.toLowerCase(), e);
+          }}
+        >
           {item}
-        </Button>)
+        </Button>
+      );
     });
   }
 
+  handleClick(option, e) {
+    e.preventDefault();
+    this.props.history.push(`/${option}`);
+  }
+
+  toggleDrawer = open => {
+    this.setState({ openDrawer: open });
+  };
+
   render() {
     const { classes } = this.props;
+    const pointer = { cursor: 'pointer' };
 
     return (
       <div className={classes.root}>
@@ -95,7 +112,12 @@ class Header extends React.Component {
             </Link>
           </Typography> */}
             <Typography style={{ display: 'inline-block' }} component={'span'}>
-              <Link href="/profile">
+              <Link
+                style={pointer}
+                onClick={e => {
+                  this.handleClick('profile', e);
+                }}
+              >
                 <Avatar className={classes.grow} />
               </Link>
             </Typography>
@@ -104,24 +126,46 @@ class Header extends React.Component {
               color="inherit"
               className={classes.grow}
               style={{ display: 'inline-block' }}
-
             >
-              <Button color="inherit" href="/" disableRipple disableFocusRipple disableTouchRipple >
-                Welcome
-            </Button>
+              <Link
+                color="inherit"
+                underline="none"
+                style={pointer}
+                onClick={e => {
+                  this.handleClick('home', e);
+                }}
+              >
+                Sean Collings
+              </Link>
             </Typography>
 
-            {this.mobileWidth() ? <LongMenu options={menuList} /> : this.renderMenuItems()}
+            {this.mobileWidth() ? (
+              // <LongMenu options={menuList} />
+              <IconButton
+                aria-label="More"
+                aria-haspopup="true"
+                onClick={() => this.toggleDrawer(true)}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              this.renderMenuItems()
+            )}
           </Toolbar>
         </AppBar>
+        <TempDrawer
+          openDrawer={this.state.openDrawer}
+          onClick={this.toggleDrawer}
+          menuList={menuList}
+        />
       </div>
     );
   }
-
 }
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Header);
+export default withRouter(withStyles(styles)(Header));

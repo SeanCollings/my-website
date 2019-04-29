@@ -1,10 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-
-import { withRouter } from 'react-router-dom'
+import MenuIcon from '@material-ui/icons/Menu';
 
 const ITEM_HEIGHT = 48;
 
@@ -42,7 +42,7 @@ class LongMenu extends React.Component {
           onClick={this.handleClick}
           color="inherit"
         >
-          <MoreVertIcon />
+          <MenuIcon />
         </IconButton>
         <Menu
           id="long-menu"
@@ -52,12 +52,16 @@ class LongMenu extends React.Component {
           PaperProps={{
             style: {
               maxHeight: ITEM_HEIGHT * 4.5,
-              width: 200,
-            },
+              width: 200
+            }
           }}
         >
           {this.props.options.map(option => (
-            <MenuItem key={option} selected={option === this.optionSelected} onClick={() => this.navigate(option)} >
+            <MenuItem
+              key={option}
+              selected={option === this.optionSelected}
+              onClick={() => this.navigate(option)}
+            >
               {option}
             </MenuItem>
           ))}
