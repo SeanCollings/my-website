@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import Paper from './components/paper';
+import Footer from './components/footer';
 
 class ContactsPage extends Component {
   render() {
@@ -11,6 +12,7 @@ class ContactsPage extends Component {
       <div>
         <Header headerName="Home" colour="#120533" />
         <Paper title="Contact Me" content="I am a contactable individual" />
+        <Footer />
       </div>
     );
   }

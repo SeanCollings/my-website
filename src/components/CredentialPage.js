@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import SignIn from './components/SignIn';
+import Footer from './components/footer';
 
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -13,17 +14,23 @@ class CredentialPage extends Component {
       <div>
         <Header headerName="Home" colour="#3f51b5" />
         <SignIn />
-        <Grid container
+        <Grid
+          container
           spacing={0}
           direction="column"
           alignItems="center"
           justify="center"
-          style={{ minHeight: '10vh' }}>
-          <Typography  >
-            Don't have an account?
-          </Typography>
-          <Button color="primary" style={{ alignItems: 'center' }}>Sign up instead</Button>
+          style={{ minHeight: '10vh' }}
+        >
+          <Typography>Don't have an account?</Typography>
+          <Button
+            color="primary"
+            style={{ alignItems: 'center', marginBottom: '50px' }}
+          >
+            Sign up instead
+          </Button>
         </Grid>
+        <Footer />
       </div>
     );
   }

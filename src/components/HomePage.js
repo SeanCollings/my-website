@@ -5,9 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Header from './components/Header';
 // import Loader from './loaderCircular';
-import Loader from './components/loaderLinear';
+// import Loader from './components/loaderLinear';
 import Paper from './components/paper';
 import MediaCard from './components/MediaCard';
+import Footer from './components/footer';
 
 const styles = theme => ({
   margin: {
@@ -18,23 +19,24 @@ const styles = theme => ({
 class HomePage extends Component {
   state = { loaded: false };
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ loaded: true });
-    }, 1000);
-  }
+  // componentDidMount() {
+  //   setTimeout(() => {
+  //     this.setState({ loaded: true });
+  //   }, 1000);
+  // }
 
   render() {
     // const { classes } = this.props;
     return (
       <div>
         <Header headerName="Welcome" />
-        <Loader loaded={this.state.loaded} />
+        {/* <Loader loaded={this.state.loaded} /> */}
         <Paper
           title="My name is Sean Collings"
           content="Please, have a look around"
         />
-        <MediaCard />
+        <MediaCard style={{ marginBottom: '50px' }} />
+        <Footer />
       </div>
     );
   }

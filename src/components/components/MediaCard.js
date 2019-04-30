@@ -18,11 +18,13 @@ const styles = {
     paddingRight: '10%',
     paddingTop: '5%',
     paddingBottom: '5%',
-    marginTop: '10px',
+    marginTop: '10px'
   },
   media: {
     height: 280,
-  },
+    filter: 'grayscale(70%)',
+    webkitFilter: 'grayscale(70%)'
+  }
 };
 
 function MediaCard(props) {
@@ -30,10 +32,7 @@ function MediaCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={Background}
-        />
+        <CardMedia className={classes.media} image={Background} />
         {/* <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             Lizard
@@ -49,7 +48,7 @@ function MediaCard(props) {
 }
 
 MediaCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(MediaCard);

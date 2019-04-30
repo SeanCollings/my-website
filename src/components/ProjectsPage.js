@@ -4,13 +4,18 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import Paper from './components/paper';
+import Footer from './components/footer';
 
 class ProjectsPage extends Component {
   render() {
     return (
       <div>
         <Header headerName="Home" colour="#33aec6" />
-        <Paper title="Projects Page" content="These are some of the projects I have worked on:" />
+        <Paper
+          title="Projects Page"
+          content="These are some of the projects I have worked on:"
+        />
+        <Footer />
       </div>
     );
   }

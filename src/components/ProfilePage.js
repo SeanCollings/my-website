@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import Paper from './components/paper';
+import Footer from './components/footer';
 
 class ProfilePage extends Component {
   render() {
@@ -18,6 +19,7 @@ class ProfilePage extends Component {
           title="This is the Profile Page"
           content="Have a look at my profile"
         />
+        <Footer />
       </div>
     );
   }

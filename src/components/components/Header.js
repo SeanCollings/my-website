@@ -29,7 +29,7 @@ const styles = {
     marginLeft: -12,
     marginRight: 20
   },
-  background: '#2E3B55'
+  background: 'rgba(26,26,26,.95)'
 };
 
 const menuList = ['Projects', 'Profile', 'Contact', 'Login'];
@@ -64,7 +64,7 @@ class Header extends React.Component {
       return (
         <Button
           key={item}
-          color="inherit"
+          style={{ color: '#DEDEDE' }}
           onClick={e => {
             this.handleClick(item.toLowerCase(), e);
           }}
@@ -92,7 +92,9 @@ class Header extends React.Component {
       <div className={classes.root}>
         <AppBar
           position="static"
-          style={{ background: this.props.colour ? this.props.colour : '' }}
+          style={{
+            background: '#424242'
+          }}
         >
           <Toolbar>
             {/* <IconButton
@@ -125,7 +127,7 @@ class Header extends React.Component {
               variant="h6"
               color="inherit"
               className={classes.grow}
-              style={{ display: 'inline-block' }}
+              style={{ display: 'inline-block', color: '#DEDEDE' }}
             >
               <Link
                 color="inherit"
