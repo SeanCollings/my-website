@@ -15,7 +15,7 @@ const styles = theme => ({
     marginTop: '30px'
   },
   pageFill: {
-    minHeight: '99vh',
+    minHeight: '98vh',
     position: 'relative'
   }
 });
@@ -51,15 +51,14 @@ class HomePage extends Component {
         <Header headerName="Welcome" />
         {/* <Loader loaded={this.state.loaded} /> */}
         <Paper
-          title="My name is Sean Collings"
+          title="Sean Collings"
           content="Please, have a look around"
         />
         <div
           style={{
             alignItems: 'center',
             justifyContent: 'center',
-            display: 'flex',
-            marginTop: '10px'
+            display: 'flex'
           }}
         >
           <Button
@@ -67,9 +66,11 @@ class HomePage extends Component {
               this.addMediaCard();
             }}
             style={{
-              backgroundColor: '#350860',
-              color: '#DEDEDE',
-              marginRight: '10px'
+              backgroundColor: '#DEDEDE',
+              // backgroundColor: '#FF4136',
+              color: '#424242',
+              marginRight: '10px',
+              width: '50%'
             }}
           >
             Add Card
@@ -79,19 +80,21 @@ class HomePage extends Component {
               this.removeMediaCard();
             }}
             style={{
-              backgroundColor: '#FF4136',
-              color: '#DEDEDE'
+              backgroundColor: '#DEDEDE',
+              // color: '#FF4136',
+              color: '#424242',
+              width: '50%'
             }}
           >
-            Remove Card
+            Remove
           </Button>
         </div>
         {this.displayCards()}
         <div
-          style={this.state.mediaCards.length > 0 ? { height: '64px' } : {}}
+          style={this.state.mediaCards.length > 0 ? { height: '46px' } : {}}
         />
         <Footer />
-      </div>
+      </div >
     );
   }
 }

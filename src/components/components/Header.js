@@ -98,7 +98,8 @@ class Header extends React.Component {
           position="sticky"
           elevation={0}
           style={{
-            background: '#424242'
+            background: '#424242',
+            height: this.mobileWidth() ? '56px' : '64px'
           }}
         >
           <Toolbar>

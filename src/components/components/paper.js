@@ -18,7 +18,7 @@ function PaperSheet(props) {
 
   return (
     <div>
-      <Paper className={classes.root} elevation={1}>
+      <Paper className={classes.root} elevation={0}>
         <Typography variant="h5" component="h3">
           {props.title}
         </Typography>

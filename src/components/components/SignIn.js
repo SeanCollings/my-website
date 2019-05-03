@@ -70,19 +70,33 @@ const styles = theme => ({
 });
 
 class SignIn extends Component {
+  state = { password: '', confirmPassword: '' };
+
   signInClicked = () => {
     console.log('Sign In Clicked');
     console.log(this);
   };
 
   handleSubmit = event => {
-    // event.preventDefault();
+    event.preventDefault();
+
     // console.log(event);
     // this.props.signinUser({ username, password });
+    if (this.props.signUpUser) {
+      const { password, confirmPassword } = this.state;
+
+      if (password !== confirmPassword) {
+        console.log('Password no Match!');
+      } else {
+        // make API call
+        console.log('It\'s a match!');
+      }
+
+    }
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, signUpUser } = this.props;
 
     return (
       <main className={classes.main}>
@@ -92,7 +106,7 @@ class SignIn extends Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            {signUpUser ? 'Sign Up' : 'Login'}
           </Typography>
           <form className={classes.form} onSubmit={this.handleSubmit}>
             <FormControl margin="normal" required fullWidth>
@@ -135,7 +149,36 @@ class SignIn extends Component {
                 }}
               />
             </FormControl>
+            <FormControl
+              margin="normal" fullWidth
+              required={signUpUser ? true : false}
+              style={{
+                visibility: signUpUser ? 'visible' : 'hidden',
+                height: '0px'
+              }}
+            >
+              <InputLabel
+                htmlFor="password"
+                classes={{
+                  root: classes.cssLabel,
+                  focused: classes.cssFocused
+                }}
+              >
+                Confirm Password
+              </InputLabel>
+              <Input
+                name="confirmPassword"
+                type="password"
+                id="confirmPassword"
+                classes={{
+                  underline: classes.cssUnderline
+                }}
+              />
+            </FormControl>
             <FormControlLabel
+              style={{
+                visibility: signUpUser ? 'hidden' : 'visible'
+              }}
               control={
                 <Checkbox
                   value="remember"
@@ -152,7 +195,7 @@ class SignIn extends Component {
               className={classes.submit}
             // onClick={() => this.signInClicked()}
             >
-              Sign in
+              {signUpUser ? 'Sign Up' : 'Login'}
             </Button>
           </form>
         </Paper>

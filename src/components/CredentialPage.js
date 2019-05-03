@@ -11,31 +11,41 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   pageFill: {
-    minHeight: '99vh',
+    minHeight: '98vh',
     position: 'relative'
   }
 });
 
 class CredentialPage extends Component {
+  state = { signUpUser: false };
+
+  signUpUser = () => {
+    this.setState({ signUpUser: !this.state.signUpUser });
+  }
+
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.pageFill}>
         <Header />
-        <SignIn />
+        <SignIn signUpUser={this.state.signUpUser} />
         <Grid
           container
           spacing={0}
           direction="column"
           alignItems="center"
           justify="center"
-          style={{ minHeight: '10vh' }}
+          style={{
+            minHeight: '10vh'
+          }}
         >
           <Typography style={{ marginTop: '10px' }}>
-            Don't have an account?
+            {this.state.signUpUser ? 'Got an account already?' : 'Don\'t have an account?'}
           </Typography>
-          <Button style={{ alignItems: 'center', color: '#FF4136' }}>
-            Sign up instead
+          <Button style={{ alignItems: 'center', color: '#FF4136' }}
+            onClick={() => this.signUpUser()}
+          >
+            {this.state.signUpUser ? 'Login instead' : 'Sign up instead'}
           </Button>
         </Grid>
         <Footer />

@@ -9,7 +9,7 @@ import Footer from './components/footer';
 
 const styles = theme => ({
   pageFill: {
-    minHeight: '99vh',
+    minHeight: '98vh',
     position: 'relative'
   }
 });
@@ -20,7 +20,7 @@ class ContactsPage extends Component {
     return (
       <div className={classes.pageFill}>
         <Header headerName="Home" colour="#120533" />
-        <Paper title="Contact Me" content="I am a contactable individual" />
+        <Paper title="Contact Me" content="Feel free to send me a message" />
         <Footer />
       </div>
     );

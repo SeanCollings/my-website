@@ -9,7 +9,7 @@ import Footer from './components/footer';
 
 const styles = theme => ({
   pageFill: {
-    minHeight: '99vh',
+    minHeight: '98vh',
     position: 'relative'
   }
 });
@@ -25,8 +25,8 @@ class ProfilePage extends Component {
           Home
         </Button> */}
         <Paper
-          title="This is the Profile Page"
-          content="Have a look at my profile"
+          title="My Profile"
+          content="Probably some important stuff"
         />
         <Footer />
       </div>

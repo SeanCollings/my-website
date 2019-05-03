@@ -18,7 +18,8 @@ const styles = {
     paddingRight: '10%',
     paddingTop: '5%',
     paddingBottom: '5%',
-    marginTop: '10px'
+    marginTop: '10px',
+    backgroundColor: '#DEDEDE'
   },
   media: {
     height: 280,
