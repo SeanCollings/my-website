@@ -20,8 +20,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = {
   root: {
-    flexGrow: 1,
-    marginTop: '64px'
+    flexGrow: 1
   },
   grow: {
     flexGrow: 1
@@ -96,7 +95,8 @@ class Header extends React.Component {
     return (
       <div className={classes.root} ref={this.myDiv}>
         <AppBar
-          position="fixed"
+          position="sticky"
+          elevation={0}
           style={{
             background: '#424242'
           }}
@@ -157,8 +157,8 @@ class Header extends React.Component {
                 <MenuIcon />
               </IconButton>
             ) : (
-              this.renderMenuItems()
-            )}
+                this.renderMenuItems()
+              )}
           </Toolbar>
         </AppBar>
         <TempDrawer

@@ -11,7 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   pageFill: {
-    minHeight: '90vh',
+    minHeight: '99vh',
     position: 'relative'
   }
 });
@@ -21,8 +21,7 @@ class CredentialPage extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.pageFill}>
-        <Header headerName="Home" colour="#3f51b5" />
-        <div style={{ paddingBottom: '1px' }} />
+        <Header />
         <SignIn />
         <Grid
           container
@@ -39,7 +38,7 @@ class CredentialPage extends Component {
             Sign up instead
           </Button>
         </Grid>
-        <Footer style={{ marginTop: '-125px' }} />
+        <Footer />
       </div>
     );
   }

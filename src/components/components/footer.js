@@ -10,7 +10,6 @@ const styles = {
     bottom: 0,
     width: '100%',
     backgroundColor: '#444444',
-    color: 'white',
     textAlign: 'center',
     height: '25px',
     paddingTop: '10px'

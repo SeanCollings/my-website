@@ -9,7 +9,7 @@ import Footer from './components/footer';
 
 const styles = theme => ({
   pageFill: {
-    minHeight: '90vh',
+    minHeight: '99vh',
     position: 'relative'
   }
 });

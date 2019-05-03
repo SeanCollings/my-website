@@ -36,8 +36,7 @@ const styles = theme => ({
   avatar: {
     margin: theme.spacing.unit,
     // backgroundColor: theme.palette.secondary.main
-    backgroundColor: '#FF4136',
-    color: '#DEDEDE'
+    backgroundColor: '#FF4136'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -45,8 +44,8 @@ const styles = theme => ({
   },
   submit: {
     marginTop: theme.spacing.unit * 3,
-    color: '#DEDEDE',
-    backgroundColor: '#FF4136'
+    backgroundColor: '#FF4136',
+    color: 'white'
   },
   colorDark: {
     color: '#424242'
@@ -151,7 +150,7 @@ class SignIn extends Component {
               fullWidth
               variant="contained"
               className={classes.submit}
-              // onClick={() => this.signInClicked()}
+            // onClick={() => this.signInClicked()}
             >
               Sign in
             </Button>
