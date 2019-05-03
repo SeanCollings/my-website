@@ -20,23 +20,28 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = {
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginTop: '64px'
   },
   grow: {
     flexGrow: 1
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
+  headerHeight: {
+    marginTop: '100px'
   },
+  // menuButton: {
+  //   marginLeft: -12,
+  //   marginRight: 20
+  // },
   background: 'rgba(26,26,26,.95)'
 };
 
-const menuList = ['Projects', 'Profile', 'Contact', 'Login'];
+const menuList = ['Profile', 'Projects', 'Contact', 'Login'];
 
 class Header extends React.Component {
   state = { mobileWidth: false, openDrawer: false };
   updateDimensions = this.updateDimensions.bind(this);
+  myDiv = React.createRef();
 
   componentDidMount() {
     this.updateDimensions();
@@ -89,9 +94,9 @@ class Header extends React.Component {
     const pointer = { cursor: 'pointer' };
 
     return (
-      <div className={classes.root}>
+      <div className={classes.root} ref={this.myDiv}>
         <AppBar
-          position="static"
+          position="fixed"
           style={{
             background: '#424242'
           }}
@@ -137,7 +142,7 @@ class Header extends React.Component {
                   this.handleClick('home', e);
                 }}
               >
-                Sean Collings
+                Home
               </Link>
             </Typography>
 
@@ -147,7 +152,7 @@ class Header extends React.Component {
                 aria-label="More"
                 aria-haspopup="true"
                 onClick={() => this.toggleDrawer(true)}
-                color="inherit"
+                style={{ color: '#DEDEDE' }}
               >
                 <MenuIcon />
               </IconButton>

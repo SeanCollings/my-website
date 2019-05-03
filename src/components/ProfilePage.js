@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 
 // import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
 import Header from './components/Header';
 import Paper from './components/paper';
 import Footer from './components/footer';
 
+const styles = theme => ({
+  pageFill: {
+    minHeight: '90vh',
+    position: 'relative'
+  }
+});
+
 class ProfilePage extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.pageFill}>
         <Header headerName="Home" colour="#996a0d" />
         {/* <Button variant="contained" color="primary" href="/home">
           {' '}
@@ -25,4 +34,4 @@ class ProfilePage extends Component {
   }
 }
 
-export default ProfilePage;
+export default withStyles(styles)(ProfilePage);

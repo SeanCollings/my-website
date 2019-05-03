@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   footer: {
-    position: 'fixed',
+    position: 'absolute',
     left: 0,
     bottom: 0,
     width: '100%',

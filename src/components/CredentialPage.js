@@ -7,12 +7,22 @@ import Footer from './components/footer';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+  pageFill: {
+    minHeight: '90vh',
+    position: 'relative'
+  }
+});
 
 class CredentialPage extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.pageFill}>
         <Header headerName="Home" colour="#3f51b5" />
+        <div style={{ paddingBottom: '1px' }} />
         <SignIn />
         <Grid
           container
@@ -22,18 +32,17 @@ class CredentialPage extends Component {
           justify="center"
           style={{ minHeight: '10vh' }}
         >
-          <Typography>Don't have an account?</Typography>
-          <Button
-            color="primary"
-            style={{ alignItems: 'center', marginBottom: '50px' }}
-          >
+          <Typography style={{ marginTop: '10px' }}>
+            Don't have an account?
+          </Typography>
+          <Button style={{ alignItems: 'center', color: '#FF4136' }}>
             Sign up instead
           </Button>
         </Grid>
-        <Footer />
+        <Footer style={{ marginTop: '-125px' }} />
       </div>
     );
   }
 }
 
-export default CredentialPage;
+export default withStyles(styles)(CredentialPage);
